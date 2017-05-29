@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnLogout;
     private Button btnRandom;
+    private Button btnPost;
     private TextView txtNama;
     private TextView txtAngka;
     private TextView txtHasil;
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnLogout = (Button) findViewById(R.id.btnLogout);
         btnRandom = (Button) findViewById(R.id.btnRandom);
+        btnPost = (Button) findViewById(R.id.btnPost);
         txtNama = (TextView) findViewById(R.id.txtNama);
         txtAngka = (TextView) findViewById(R.id.txtAngka);
         txtHasil = (TextView) findViewById(R.id.txtHasil);
@@ -131,12 +133,41 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar1.setVisibility(View.VISIBLE);
+                postLink();
+            }
+        });
+
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signOut();
             }
         });
+    }
+
+    private void postLink() {
+        String message = "Ini halaman website UKDW";
+
+        try {
+            PlusShare.Builder shareIntent = new PlusShare.Builder(this)
+                    .setText(message)
+                    .addCallToAction("VISIT",Uri.parse("http://ukdw.ac.id"),"")
+                    .setContentUrl(Uri.parse("http://ukdw.ac.id"))
+                    .setStream(Uri.parse("http://ukdw.ac.id"));
+            startActivity(shareIntent.getIntent());
+
+            progressBar1.setVisibility(View.GONE);
+        }catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(getApplicationContext(),"Gplus is not installed, sharing cancelled.", Toast.LENGTH_LONG).show();
+            progressBar1.setVisibility(View.GONE);
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+            progressBar1.setVisibility(View.GONE);
+        }
     }
 
     private void randomAndShare() {
@@ -192,17 +223,15 @@ public class MainActivity extends AppCompatActivity {
 
             PlusShare.Builder shareIntent = new PlusShare.Builder(this)
                     .setType("image/*")
-                    .setText(message + "\n" + "http://ukdw.ac.id")
-                    .addStream(imageUri)
-                    .addCallToAction("VISIT",Uri.parse("http://ukdw.ac.id"),"")
-                    .setContentUrl(Uri.parse("http://ukdw.ac.id"));
+                    .setText(message)
+                    .addStream(imageUri);
             startActivity(shareIntent.getIntent());
 
             progressBar1.setVisibility(View.GONE);
             txtAngka.setVisibility(View.VISIBLE);
             txtHasil.setVisibility(View.VISIBLE);
         }catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(getApplicationContext(),"Gplus is not installed, sharing cancelled", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Gplus is not installed, sharing cancelled.", Toast.LENGTH_LONG).show();
             progressBar1.setVisibility(View.GONE);
         }catch (Exception e){
             Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();

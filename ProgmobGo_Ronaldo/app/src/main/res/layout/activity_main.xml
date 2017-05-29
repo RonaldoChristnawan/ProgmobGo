@@ -47,6 +47,14 @@
         android:layout_below="@+id/txtNama"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:id="@+id/btnPost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Share Halaman UKDW"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
     <TextView
         android:id="@+id/txtAngka"
         android:layout_width="wrap_content"
