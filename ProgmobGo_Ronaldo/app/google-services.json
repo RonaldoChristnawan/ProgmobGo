@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "559266492516",
+    "firebase_url": "https://progmobgo-8581d.firebaseio.com",
+    "project_id": "progmobgo-8581d",
+    "storage_bucket": "progmobgo-8581d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:559266492516:android:c60ab4f2d3389479",
+        "android_client_info": {
+          "package_name": "com.dda15.www.progmobgo_ronaldo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "559266492516-njvn16kfegehto1ib0a7k8p4d23t670d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dda15.www.progmobgo_ronaldo",
+            "certificate_hash": "cfcda5e50edde8944b4e56f5b7af54cca686ae3e"
+          }
+        },
+        {
+          "client_id": "559266492516-hv8darj7bhn7dqnrrok2ja1dt9p29a1p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrsLkvk6g9O10_7QtzUinryJpCVmKPm1M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "559266492516-hv8darj7bhn7dqnrrok2ja1dt9p29a1p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
